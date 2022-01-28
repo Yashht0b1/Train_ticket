@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	crossorigin="anonymous"></script>
+<script src="getTrainData.js"></script>	
+<title>Online Train Reservation System</title>
+
+<style>
+.dropbtn {
+	background-color: darkslategray;
+	color: rgb(252, 252, 252);
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+}
+
+.options, .home, .about, .train {
+	margin-top: 30px;
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+.options:hover .dropdown-content {
+	display: block;
+}
+
+.home:hover .dropdown-content {
+	display: block;
+}
+
+.train:hover .dropdown-content {
+	display: block;
+}
+
+.about:hover .dropdown-content {
+	display: block;
+}
+
+.options:hover .dropbtn {
+	background-color: #000000;
+}
+
+.home:hover .dropbtn {
+	background-color: #000000;
+}
+
+.train:hover .dropbtn {
+	background-color: #000000;
+}
+
+.about:hover .dropbtn {
+	background-color: #000000;
+}
+
+img {
+	height: 150px;
+	width: 150px;
+	margin-left: 50px;
+}
+
+footer {
+	position: fixed;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	width: 100%;
+}
+
+p {
+	margin: 50px 15px 20px 50px;
+	color: white;
+}
+
+body {
+	background-image: url(https://images.pexels.com/photos/253647/pexels-photo-253647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+header{
+	text-align: center;
+	color: #000;
+}
+#aboutus{
+	color: #000;
+	width: auto;
+  	border: 5px solid darkslategray;
+ 	padding: 20px;
+ 	margin: 20px;
+}
+</style>
+</head>
+<body>
+	<header>
+	<h1>
+		Welcome To Indian Railways
+	</h1>
+	</header>
+
+	<nav>
+		<div class="home" style="margin-left: 580px;">
+			<button class="dropbtn">Home</button>
+			<div class="dropdown-content">
+		 	<a href="homeNew.html" target="_blank">Log Out</a>
+			</div>
+		</div>
+		<div class="train">
+			<button class="dropbtn" id="train">Train Options</button>
+			<div class="dropdown-content" id="train">
+				<a href="showTrains.html" target="_blank">Show Trains</a> <a
+					href="showTrains.html" target="_blank">Search Train</a>
+			</div>
+		</div>
+		<div class="options">
+			<button class="dropbtn">Ticket Options</button>
+			<div class="dropdown-content">
+				<a href="bookTicket.html" target="_blank">Book Ticket</a>
+			</div>
+		</div>
+		<div class="admin">
+			<button class="dropbtn" onclick="location.href='adminLogin.html'">Admin</button>
+		</div>
+		<div class="about">
+			<button class="dropbtn">About Us</button>
+			<div class="dropdown-content">
+				<a href="#aboutus">About Railway</a>
+			</div>
+		</div>
+	</nav>
+
+	<img
+		src="data:image/png;base64,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"
+		alt="image not found">
+
+
+	<p id="aboutus">
+
+		<b>About Indian Railways</b> <br> <br> The Indian Railways
+		was founded on May 8, 1845 and in these 172 years it has become one of
+		the busiest yet lowest-cost travel modes for the passengers. It runs
+		long-distance and suburban rail systems and as of September 2016,
+		India has around 324 km of operational urban rail transit lines. There
+		are 9 types of passenger trains, namely Gatiman Express, Rajdhani
+		Express, Shatabdi/Janshatabdi Express, Duranto Express, Yuva
+		/Garibrath Express, AC Express, Superfast, Mail/Express,
+		Passengers/MEMU/DEMU. In 2015-16, an average of 13,313 passenger
+		trains ran daily, carrying an estimated 22 million passengers a day
+		and covering over 7,000 stations.
+
+	</p>
+
+	
+	<footer class="text-center text-black"
+		style="background-color: grey;">
+		<!-- Grid container -->
+
+		<!-- Copyright -->
+		<div class="text-center text-dark p-3"
+			style="background-color: rgba(0, 0, 0, 0.2);">
+			© 2022 Copyright
+		</div>
+		<!-- Copyright -->
+	</footer>
+
+</body>
+</html>
