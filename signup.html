@@ -41,6 +41,15 @@ label {
 a {
 	color: white;
 }
+.google_button{
+	align-content: center;
+	text-align: center;
+	margin: auto;
+	display: inline;
+	justify-content: center;
+  	width: 50%;
+	  
+}
 </style>
 </head>
 <body>
@@ -48,6 +57,17 @@ a {
 
 		<h1 style="text-align: center; margin-top: 90px; color: rgb(26, 93, 102);">Registration
 			Page</h1>
+
+			<div class="google_button">
+			<div class="row text-center text-align">
+				<div class="col-md-3">
+				  <a class="btn btn-outline-dark" href="/users/googleauth" role="button" style="text-transform:none; align-content: center;">
+					<img width="20px" style="margin-bottom:3px; margin-right:auto; margin-left: auto;" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+					Login with Google
+				  </a>
+				</div>
+			  </div>  
+			</div>  	
 
 		<form th:action="@{/signup}" method="post">
 
@@ -67,7 +87,7 @@ a {
 				name="gender" style="margin-right: 65px;"> <br> <br>
 			<label>Phone Number:</label> <input type="number" name="phone" id="6"
 				class="form-control" maxlength="10" required> <br> <label>If
-				you Registered Then</label> <a href="login.html" target="_blank"
+				you Registered Then</label> <a href="homeNew.html" target="_blank"
 				class="btn btn-primary"> Login</a> <input type="submit"
 				style="margin-left: 20px;" onclick="validate()">
 		</form>

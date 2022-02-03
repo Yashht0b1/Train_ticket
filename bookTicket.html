@@ -95,11 +95,6 @@ function add_pa()
                var l=p_na.length;
                console.log(l);
                
-               for (let index = 0; index < 24-l; index++) {
-                  p_nas+="&nbsp;";
-                  console.log(index);
-                   
-               }
                p_ag=parseInt(document.getElementById("pa_ag").value);
                p_gn=(document.getElementById("pa_gn").value).toUpperCase();
                
@@ -180,7 +175,7 @@ return pnr;
 
 function download_ticket()
 {   if (PNR=="") {
-   alert("No Dta found");
+   alert("No Data found");
   }
   else
   {
@@ -214,7 +209,7 @@ function download(filename, text) {
 
 <style>
 body{
-    background-image: url(https://st2.depositphotos.com/6235482/10254/i/600/depositphotos_102540138-stock-photo-old-blank-ticket.jpg);
+    background-image: url(https://i.pinimg.com/originals/ae/48/66/ae4866824012b855e82a358960c1d0d6.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -291,6 +286,21 @@ footer
         </div>
 
         <br> <br> <br>
+        <div class="form" align="center">
+            <div id="padata">
+             </div>
+             <input id="btn" type="submit" value="Pay Via Card" onclick="window.location.href='cardpayment.html'" />
+            </div>
+    
+            <br> <br> <br>
+            <div class="form" align="center">
+                <div id="padata">
+                 </div>
+                 <input id="btn" type="submit" value="Upi Payment Option" onclick="window.location.href='upipayment.html'" />
+                </div>
+        
+                <br> <br> <br>    
+        
 
     <div class="form" align="center">
        

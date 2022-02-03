@@ -24,21 +24,37 @@
         margin-top: 200px;
     }
 </style>  
+<script> 
+
+    function validate1(){
+    var ae=document.getElementById("eid").value ;
+    var apa=document.getElementById("pwd").value ;
+    // console.log(ae+"admin login"+apa);
+    if(ae=="admin_123" && apa=="admin123")
+    {
+    // alert("admin login successfully");
+    window.location.href="Adminhome.html";
+    }
+    else
+    {
+    alert("Invalid Details")
+    }
+}</script>
 </head>
 <body>
     <h1>Login Page</h1>
-<form style="text-align: center;" th:action="@{/login}" method="post">
-    <input type="email" name="email" placeholder="Enter Email" style="margin-top: 20px;" required> 
+<form style="text-align: center;" th:action="#">
+    <input type="email" name="email" placeholder="Enter Email" style="margin-top: 20px;" id="eid" required> 
     <br> 
     <br> 
-    <input style="align-content: center;"type="password" name="password" placeholder="Enter Password" required>
+    <input style="align-content: center;"type="password" name="password" placeholder="Enter Password" id="pwd" required>
     <br><br>
     <button>Click for OTP</button><br><br>
-    <input style="align-content: center;" name="otp" placeholder="Enter OTP received on e-mail" required>
+    <input style="align-content: center;" name="otp" placeholder="Enter OTP received on e-mail">
     <br> 
    
     <br> 
-    <button type="submit" style="margin-left:0px;" onclick="location.href='Adminhome.html'">Login</button> 
+    <button type="submit" style="margin-left:0px;" onclick="validate1()">Login</button> 
     <button type="reset" style="margin-left:25px;">Reset</button>
 
     <footer class="text-center text-white" style="background-color: #f1f1f1;">

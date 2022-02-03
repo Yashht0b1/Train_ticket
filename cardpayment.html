@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">        
+    </head>
+    <style>
+        h1.double {border-style: double;border-style: solid;border-width: medium;
+            border: 2px solid rgb(71, 191, 238);  border-radius: 12px;  
+            padding: 5px; background-color:rgb(152, 238, 71);
+            background-image: url("images/bg1.png");}
+
+         label.name {border-style: double;border-style: solid;border-width: medium;
+            border: none;  border-radius: 12px;  
+            padding: 5px; background-color:rgb(152, 238, 71);
+            background-image: url("images/bg4.png");
+        }
+
+    .d1{background-image: url("images/bg1.png"); 
+    background-size: 100% 100%; 
+    background-repeat: no-repeat ; 
+    border-style: double;
+    border-style: solid;
+    border-width: medium;
+    border: 2px solid rgb(83, 203, 250);  
+    border-radius: 12px;  
+    padding: 5px; 
+    text-align: center;
+    height: 110vh;
+    width: 100vw;
+    font-family: cursive;
+    font-size: 20px;
+    font-style: oblique;
+    }
+
+    input[type=text],[type=number],[type=month] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #31e9f0;
+  background-image:url("images/bg4.png");
+  color: white;
+  border-radius: 12px;
+}
+           
+::placeholder{
+    font-family: cursive;
+}
+
+input[type="submit"]{
+    width: 70px;
+    height: 30px;
+}
+
+
+    
+</style>
+    <script>
+        function validate()
+        {
+            var name=document.getElementByID("name").value;
+            var num=document.getElementByID("number").value;
+            var exp=document.getElementByID("date").value;
+            var cvv=document.getElementByID("cvv").value;
+
+            if(name=="yash" && num=="123412340099" && cvv=="770")
+            {
+            alert("Payment Successful");
+            window.location.href="bookTicket.html";
+            }
+            else
+            {
+            alert("Invalid Details")
+            } 
+        }
+    </script>
+    <body>
+        <div class="d1">
+        <h1 class="double">CARD Payment</h1>
+
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+        <label for="tab-1" class="tab">Debit Card</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up">
+        <label for="tab-2" class="tab">Credit Card</label><br/><br/>
+
+        <label class="name" for="name">Card Holder Name : </label><br/> 
+        <input type="text" name="name" id="name" placeholder="Name as on Card"><br/><br/>
+        <label class="name" for="name">Card Number : </label><br/>
+        <input type="number" id="number" name="number" size="12" placeholder="12 Digit Card Number"><br/><br/>
+        <label class="name" for="name">Card expiry Date : </label><br/>
+        <input type="month" id="date" name="date"><br/><br/>
+        <label class="name" for="name">Card CVV : </label><br/>
+        <input type="number" id="cvv" name="cvv" placeholder="CVV"><br/><br/>
+        <input type="button" value="confirm" onclick="window.location.href='bookTicket.html'" style="background-color: rgb(84, 170, 240);">
+        <!-- <input type="submit" value="submit" onclick="validate()" style="background-color: rgb(84, 170, 240);"> -->
+    </div>
+</body>
+</html>

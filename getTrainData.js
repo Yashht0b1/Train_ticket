@@ -53,16 +53,16 @@ function createTable(jsonStr) {
         btnDelete.innerHTML = 'Delete';
         btnDelete.addEventListener("click", showDeletePage);
 
-        cell6.appendChild(btnBook);
-        cell6.appendChild(btnEdit);
-        cell6.appendChild(btnDelete);
+        // cell6.appendChild(btnBook);
+        // cell6.appendChild(btnEdit);
+        // cell6.appendChild(btnDelete);
 
         row.appendChild(cell1);
         row.appendChild(cell2);
         row.appendChild(cell3);
         row.appendChild(cell4);
         row.appendChild(cell5);
-        row.appendChild(cell6);
+        // row.appendChild(cell6);
 
 
         tableBody.appendChild(row);

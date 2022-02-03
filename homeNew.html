@@ -72,7 +72,27 @@
   display: table;
   clear: both;
 }
-</style>    
+</style>  
+
+<script>
+    function validate()
+    {
+        var ae=document.getElementById("eid").value ;
+                var apa=document.getElementById("pwd").value ;
+                // console.log(ae+"admin login"+apa);
+            if(ae=="yash" && apa=="1234")
+            {
+                // alert("login successful")
+                window.location.href="home.html";
+               
+            }
+            else
+            {
+                alert("Invalid Details")
+            }
+
+        }
+</script>
 </head>
 <body>
     
@@ -85,11 +105,11 @@
           <button class="button2" style="opacity: 0.75;" onclick="location.href='signup.html'">Sign up</button>
         </div>
         <div class="column right" style="background-color:white;"><br>
-            <h4>Enter email and password to login!!</h4><br>
-            <form th:action="@{/login}" method="post">
-            <input type="email" name="email" placeholder="Enter Email"  required><br><br>
-            <input type="password" name="password" placeholder="Enter Password" required><br><br>
-            <button class="button" onclick="location.href='home.html'">Login</button>
+            <h4>Enter username and password to login!!</h4><br>
+            <form action="#">
+            <input type="email" name="email" placeholder="Enter Username" id="eid" required><br><br>
+            <input type="password" name="password" placeholder="Enter Password" id="pwd" required><br><br>
+            <button class="button" onclick="validate()">Login</button>
             </form>
         </div>
     </div>  

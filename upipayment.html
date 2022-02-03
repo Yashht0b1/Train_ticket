@@ -18,7 +18,7 @@
             background-image: url("../proj/bg4.png");
             }
 
-            .d1{background-image: url("../proj/tr1.jpg"); 
+            .d1{background-image: url("../proj/bg4.png"); 
             background-size: 100% 100%; 
             background-repeat: no-repeat ; 
             border-style: double;
@@ -35,47 +35,52 @@
             font-style: oblique;
             }
 
-           
+            input[type="submit"]{
+                height: 30px;
+                width: 70px;
+            }
 
-            
-                button.btn {
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-                }
-
-    #button1:hover{
-        color: white;
-    }
-                
-     body{
-         background-image: url(https://images.pexels.com/photos/302428/pexels-photo-302428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-     }       
+            input[type=text],[type=password] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            background-color: #31e9f0;
+            color: white;
+            border-radius: 12px;
+}
+body{
+    background-image: url("images/bg4.png");
+}
 
     </style>
 
     <script>
-  
+      function validate()
+      {
+          var upi=document.getElementById("upi").value;
+          var password=document.getElementById("password").value;
+          if(upi=="7869240000_ybl" && password=="990077")
+        {
+        alert("Payment Successful");
+        }
+        else
+        {
+        alert("Invalid Details")
+        }      
+      }
+
     </script>
 
     <body>
         <div class="d1">
-        <!--<h1 class="double">Admin Home Page</h1>--><br/><br/>
-        <!--<label class="name" for="1">Add Train</label>-->
-        <button id='button1' class="btn" onclick="window.location.href='addTrain.html'">Add Train</button><br/><br/>
-        <!--<label class="name" for="2">Delete Train</label>-->
-        <button id='button1' class="btn" onclick="window.location.href='deleteTrain.html'">Delete Train</button><br/><br/>
-        <!--<label class="name" for="3">Update Train</label>-->
-        <button id='button1' class="btn" onclick="window.location.href='updateTrain.html'">Update Train</button>
-  
-    </div>
+        <h1 class="double">UPI Payment</h1>
+        <label class="name" for="upi">UPI Address : </label><br/>
+        <input type="text" id="upi" name="upi" placeholder="Enter UPI"><br/><br/>
+        <label class="name" for="password">Enter PIN : </label><br/>
+        <input type="password" name="password" id="password" placeholder="Enter PIN"><br/><br/>
+        <input type="submit" value="Submit" onclick="validate()" style="background-color: rgb(84, 170, 240);">
+        <br><br>
 </body>
 </html>

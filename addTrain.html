@@ -77,21 +77,88 @@
         if(tno=="" || tno.length<5){
            window.alert("Train Number above 5 "); 
         }
-        if(tname==null || tname==""){
+        else if(tname==null || tname==""){
             window.alert("Train Name Should not be null ");
         }
-         if(source==null || source==""){
+        else if(source==null || source==""){
             alert("Source Name Not Null");
             return false;
         }
-        if(dest==null || dest==""){
+        else if(dest==null || dest==""){
             alert("Destination Name Not Null");
             return false;
         }
-        if(fare==null || fare==""){
+        else if(fare==null || fare==""){
             window.alert("Fare Not Null");
         }  
+        else {
+                const trainObj = {
+                    "trainNo": tno,
+                    "trainName": tname,
+                    "source": source,
+                    "destination": dest,
+                    "ticketPrice": fare
+                }
+
+        async function editTrainData() {
+                    const url = 'http://localhost:9191/api/train';
+
+                    const data = {
+                        method: 'PUT',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(trainObj)
+                    };
+                    const rawResponse = await fetch(url, data);
+                    const content = await rawResponse.json();
+
+                    console.log(content);
+                }
+                editTrainData();
         }
+    }
+                //   form.submit();
+
+        async function callApiForTrainDataUsingTrainNumber(trainNumber) {
+
+            console.log('Data Fetching is started...');
+
+            let url = "http://localhost:9191/api/train/" + trainNumber;
+
+            let response = await fetch(url);
+            let jsonStr = await response.text();
+            console.log(jsonStr);
+
+            const trainObj = JSON.parse(jsonStr);
+
+            console.log('Data Fetched Successfully...');
+
+            document.getElementById("1").value = trainObj.trainNo;
+            document.getElementById("2").value = trainObj.trainName;
+            document.getElementById("3").value = trainObj.source;
+            document.getElementById("4").value = trainObj.destination;
+            document.getElementById("5").value = trainObj.ticketPrice;
+            return trainObj;
+        }
+
+        function getTrainData() {
+
+            const queryString = window.location.search;
+            console.log(queryString);
+
+            const urlParams = new URLSearchParams(queryString);
+
+            const trainNumber = urlParams.get('id')
+            console.log(trainNumber);
+
+            const trainObj = callApiForTrainDataUsingTrainNumber(trainNumber);
+
+        }
+
+        getTrainData();
     
         </script>
 </body>
+</html>

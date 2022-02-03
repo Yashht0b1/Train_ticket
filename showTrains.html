@@ -25,6 +25,7 @@ table,th,td{
     border-collapse: separate;
     text-align: center;
     width: 38%;
+    opacity: 0.99;
 }
 table.center {
   margin-left: auto; 
@@ -44,58 +45,47 @@ body{
 
 
 </style>
-
-<script type="text/javascript">
-
-var TrainDetails = [ 
-    {Train_no:"1001", Train_Name:"Shatabdi Express", Source:"Bangalore", Destination:"Delhi", Ticket_Price:"2500"},
-    {Train_no:"1002", Train_Name:"Shatabdi Express", Source:"Delhi", Destination:"Bangalore", Ticket_Price:"2500"},
-    {Train_no:"1003", Train_Name:"Udyan Express", Source:"Bangalore", Destination:"Mumbai", Ticket_Price:"1500"},
-    {Train_no:"1004", Train_Name:"Udyan Express", Source:"Mumbai", Destination:"Bangalore", Ticket_Price:"1500"},
-    {Train_no:"1005", Train_Name:"Brindavan Express", Source:"Bangalore", Destination:"Chennai", Ticket_Price:"1000"},
-    {Train_no:"1006", Train_Name:"Brindavan Express", Source:"Chennai", Destination:"Bangalore", Ticket_Price:"1000"},
-]
-
-
-	function showAllTrains(){
-	    table="<table class='center'><tr><th>Train_no</th><th>Train_Name</th><th>Source</th><th>Destination</th><th>Ticket_Price</th>"
-	    for(var i=0;i<TrainDetails.length;i++){
-	        table+="<tr><td>"+TrainDetails[i].Train_no+"</td><td>"+TrainDetails[i].Train_Name+"</td><td>"+TrainDetails[i].Source+"</td><td>"+TrainDetails[i].Destination+"</td><td>"+TrainDetails[i].Ticket_Price+"</td><tr>" 
-	    }
-	    table +="</table>"
-	    document.getElementById('show').innerHTML=table;
-	}
-	
-	function showDetails(){
-    var t=parseInt(document.getElementById('trainno').value);
-    table="<table class='center'><tr><th>Train_no</th><th>Train_Name</th><th>Source</th><th>Destination</th><th>Ticket_Price</th>"
-    for(var i=0;i<TrainDetails.length;i++){
-        if(t==TrainDetails[i].Train_no){
-            table+="<tr><td>"+TrainDetails[i].Train_no+"</td><td>"+TrainDetails[i].Train_Name+"</td><td>"+TrainDetails[i].Source+"</td><td>"+TrainDetails[i].Destination+"</td><td>"+TrainDetails[i].Ticket_Price+"</td><tr>"
-        }   
-    }
-    table += "</table>"
-    document.getElementById('show').innerHTML = table;
-}
-
-</script>
 </head>
-<body style="background-color:powderblue; text-align:center;">
-<header>
-	<h2>List of all trains</h2>
-</header>	
-	 <input type="submit" value="Show all Trains" onclick="showAllTrains()"><br>
-	 <span id="show"></span><br>
-	 
-	  <div class="container">
-	 			<header>
-                <h2>Enter Train No</h2>
-                </header>
-                <input type="text" id="trainno" placeholder="ex-1220">
-                <br><br>
-                <input type="submit" value="Display Train" onclick="showDetails()">
-                <span id="show"></span>
-            </div>
-		
+<body>
+    <nav id="navbar">
+        <div id="logo">
+    </nav><br><br><br>
+<section id="home">
+    <div id="train_details" class="container">
+        <header style="text-align: center;">
+        <h1>Train Details</h1>
+        </header>
+        <table class=" table table-stripped">
+            <thead>
+                <tr>
+                    <th>Train Number</th>
+                    <th>Train Name</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Fare</th>
+                </tr>
+            </thead>
+            <tbody id="table_body">
+            </tbody>
+        </table>
+       <!-- <a class="btn btn-primary" href="home.html" role="button">Back</a>-->
+    </div>
+</section>
+   <!-- <footer class="text-center text-white" style="background-color:white ">
+       > <div style="font-size: 50px;padding:10px;">
+            <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.google.com/" target="_blank"><i class="bi bi-google"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        </div>-->
+        <!-- Grid container -->
+        <!-- Copyright -->
+      <!--  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-dark" href="https://www.irctc.co.in/nget/train-search">irctc.com</a>
+        </div>
+        <!-- Copyright
+    </footer>-->
+    <script src="/js/getTrainData.js"></script>
 </body>
 </html>
